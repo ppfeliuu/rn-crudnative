@@ -11,7 +11,8 @@ import {
 } from "react-native-paper";
 import globalStyles from "../styles/global";
 
-const NuevoCliente = () => {
+const NuevoCliente = ({ navigation, route }: any) => {
+  const { setConsultarAPI } = route.params;
   const [nombre, setNombre] = useState("");
   const [telefono, setTelefono] = useState("");
   const [email, setEmail] = useState("");
@@ -30,11 +31,20 @@ const NuevoCliente = () => {
       if (Platform.OS === "ios") {
         await axios.post("http://localhost:3000/clientes", cliente);
       } else {
-        await axios.post("http://192.168.0.12:3000/clientes", cliente);
+        await axios.post("http://192.168.0.13:3000/clientes", cliente);
       }
     } catch (error) {
       console.log(error);
     }
+
+    navigation.navigate("Inicio");
+
+    setNombre("");
+    setEmail("");
+    setEmpresa("");
+    setTelefono("");
+
+    setConsultarAPI(true);
   };
 
   return (

@@ -1,18 +1,11 @@
 {
   "clientes": [
     {
-      "nombre": "Hgjj",
-      "telefono": "Gjjg",
-      "empresa": "Chvvh",
-      "email": "Vgjvv",
+      "nombre": "1111",
+      "telefono": "Ffff",
+      "empresa": "Ffff",
+      "email": "Ffff",
       "id": 1
-    },
-    {
-      "nombre": "Hgjj",
-      "telefono": "Gjjg",
-      "empresa": "Chvvh",
-      "email": "Vgjvv",
-      "id": 2
     }
   ]
 }

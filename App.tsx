@@ -42,15 +42,15 @@ export default function App() {
             <Stack.Screen
               name="Inicio"
               component={Inicio}
-              options={({ navigation, route }) => ({
+              /*  options={({ navigation, route }) => ({
                 headerLeft: (props) => (
                   <Barra {...props} navigation={navigation} route={route} />
                 ),
                 headerTitleAlign: "center",
-              })}
+              })} */
             />
             <Stack.Screen
-              name="Nuevo"
+              name="NuevoCliente"
               component={NuevoCliente}
               options={{ title: "Nuevo Cliente" }}
             />
