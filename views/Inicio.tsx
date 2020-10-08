@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { Text, Platform, FlatList, View, StyleSheet } from "react-native";
+import { Text, Platform, FlatList, View } from "react-native";
 import axios from "axios";
 import { List, Headline, Button, FAB } from "react-native-paper";
 import globalStyles from "../styles/global";
@@ -15,7 +15,7 @@ const Inicio = ({ navigation }: any) => {
         if (Platform.OS === "ios") {
           url = "http://localhost:3000/clientes";
         } else {
-          url = "http://192.168.0.13:3000/clientes";
+          url = "http://192.168.0.12:3000/clientes";
         }
 
         const res = await axios.get(url);
@@ -49,27 +49,20 @@ const Inicio = ({ navigation }: any) => {
           <List.Item
             title={item["nombre"]}
             description={item["empresa"]}
-            onPress={() => navigation.navigate("Detalles", { item })}
+            onPress={() =>
+              navigation.navigate("Detalles", { item, setConsultarAPI })
+            }
           />
         )}
       />
 
       <FAB
         icon="plus"
-        style={styles.fab}
+        style={globalStyles.fab}
         onPress={() => navigation.navigate("NuevoCliente", { setConsultarAPI })}
       />
     </View>
   );
 };
-
-const styles = StyleSheet.create({
-  fab: {
-    position: "absolute",
-    margin: 10,
-    right: 0,
-    bottom: 0,
-  },
-});
 
 export default Inicio;
